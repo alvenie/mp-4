@@ -25,8 +25,8 @@ export default function CatData() {
             if (results.length > 0) {
                 setData((prevData) => [...prevData, ...results]);
             }
-        } catch (e) {
-            setError("Failed to load cat images. Please try again later.");
+        } catch (error) {
+            setError(error instanceof Error ? error.message : "Failed to load cat images");
         } finally {
             setLoading(false);
         }
